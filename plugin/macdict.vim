@@ -1,8 +1,18 @@
+" initial load
+if exists('g:loaded_macdict_vim')
+  finish
+endif
+let g:loaded_macdict_vim = 1
+
 let s:save_cpo = &cpo
 set cpo&vim
 
 " set program path
-let s:macdict_prg = "r!" . expand('<sfile>:p:h:h') . "/autoload/dict "
+if executable(expand('<sfile>:p:h:h')."/autoload/dict")
+  let s:macdict_prg = "r!" . expand('<sfile>:p:h:h') . "/autoload/dict "
+else
+  echo "Before using macdict-vim, You need compile dict.m in the plugin directory."
+endif
 
 " set option
 if !exists('g:macdict_window_size')
@@ -24,7 +34,7 @@ endfunction
 
 " close output
 function! macdict#s:close()
-  bd!
+  exe ":bdelete"
 endfunction
 
 " define command
@@ -33,7 +43,7 @@ command! -nargs=1 MacDictEng call macdict#s:consul('-e', <q-args>)
 command! -nargs=1 MacDictDaijirin call macdict#s:consul('-j', <q-args>)
 command! -nargs=1 MacDictRuigo call macdict#s:consul('-s', <q-args>)
 command! -nargs=0 MacDictCWord call macdict#s:consul('', expand('<cword>'))
-command! MacDictClose call s:close()
+command! MacDictClose call macdict#s:close()
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
