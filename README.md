@@ -1,9 +1,8 @@
 macdict-vim
 ===========
 
-Consult dictionaries from Vim for Mac OSX
-
-This plugin uses Mac OSX internal dictionaries.
+You can consult dictionaries from Vim for Mac OSX with this plugin.
+But this plugin uses Mac OSX internal dictionaries.
 
 ## INSTALL
 ```

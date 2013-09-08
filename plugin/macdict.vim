@@ -1,3 +1,9 @@
+" PluginName: macdict-vim
+" Maintener:  modsound
+" Email:      modsound@gmail.com
+" Twitter:    @modsound
+" License:    MIT
+
 " initial load
 if exists('g:loaded_macdict_vim')
   finish
@@ -6,6 +12,11 @@ let g:loaded_macdict_vim = 1
 
 let s:save_cpo = &cpo
 set cpo&vim
+
+if !has("mac")
+  echo "Sorry. macdict.vim is only for Mac OSX User."
+  finish
+endif
 
 " set program path
 if executable(expand('<sfile>:p:h:h')."/autoload/dict")
@@ -16,7 +27,7 @@ endif
 
 " set option
 if !exists('g:macdict_window_size')
-  let g:macdict_window_size = '30vsplit'
+  let g:macdict_window_size = '40vsplit'
 endif
 
 " consult mac internal dictionaries
