@@ -1,2 +1,2 @@
 dict: dict.m
-	gcc -Wall -framework Cocoa,CoreFoundation -o $@ $<
+	clang -Wall -framework Cocoa,Corefoundation -o $@ $<

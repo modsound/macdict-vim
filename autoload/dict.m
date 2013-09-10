@@ -31,7 +31,7 @@ int main(int argc, char** argv) {
   argc -= optind;
   argv += optind;
 
-  id pool = [NSAutoreleasePool new]; 
+  @autoreleasepool{
 
     NSString* word;
     word = [NSString stringWithUTF8String:argv[0]];
@@ -57,7 +57,7 @@ int main(int argc, char** argv) {
       printf("No such word.\n");
     }
 
-  [pool drain];
+  }
 
   return 0;
 }
