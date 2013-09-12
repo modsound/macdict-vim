@@ -21,27 +21,42 @@ $ make
 
 ```
 :MacDict
--> Search an argument word.
+-> Search an argument word with Japanese-English dictionary.
 ```
 
 ```
 :MacDictCWord
--> Search the word under the cursor.
+-> Search the word under the cursor with Japanese-English dictionary.
 ```
 
 ```
-:MacDictDaijirin
--> Search an argument word with Daijirin(Japanese Dictionary).
+:MacDictEnglish
+-> Search an argument word with American English Dictionary.
 ```
 
 ```
-:MacDictEng
--> Search an argument word with English-English Dictionary.
+:MacDictThesaurus
+-> Search an argument word with American English Thesaurus dictionary.
 ```
 
 ```
-:MacDictRuigo
--> Search an argument word with RuigoJiten(Japanese Thesaurus Dictionary).
+:MacDictWikipedia
+-> Search an argument word with Wikipedia.
+```
+
+```
+:MacDictApple
+-> Search an argument word with Apple Dictionary.
+```
+
+```
+:MacDictFrench
+-> Search an argument word with French Dictionary.
+```
+
+```
+:MacDictGerman
+-> Search an argument word with German Dictionary.
 ```
 
 ```
