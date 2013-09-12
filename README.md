@@ -40,16 +40,6 @@ $ make
 ```
 
 ```
-:MacDictWikipedia
--> Search an argument word with Wikipedia.
-```
-
-```
-:MacDictApple
--> Search an argument word with Apple Dictionary.
-```
-
-```
 :MacDictFrench
 -> Search an argument word with French Dictionary.
 ```

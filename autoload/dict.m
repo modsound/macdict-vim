@@ -11,21 +11,21 @@ NSString *DCSDictionaryGetName(DCSDictionaryRef dictID);
 NSString *DCSDictionaryGetShortName(DCSDictionaryRef dictID); 
 
 int main(int argc, char** argv) {
-  int opt;
+  int o;
   // set default dictionary
   NSString *dictname = @"Japanese-English";
   // set dictionary by an argument
-  while ((opt = getopt(argc, argv, "jwafgte")) != -1) {
-    switch (opt) {
- 	    case 'j':
- 	      dictname = @"Japanese";
- 	      break;
-      case 'w':
-        dictname = @"Wikipedia";
-        break;
- 	    case 'a':
- 	      dictname = @"Apple";
- 	      break;
+  while ((o = getopt(argc, argv, "jfgte")) != -1) {
+    switch (o) {
+       case 'j':
+         dictname = @"Japanese";
+         break;
+      // case 'w':
+        // dictname = @"Wikipedia";
+        // break;
+       // case 'a':
+         // dictname = @"Apple";
+         // break;
       case 'f':
         dictname = @"French";
         break;
@@ -33,11 +33,14 @@ int main(int argc, char** argv) {
         dictname = @"German";
         break;
       case 't':
-        dictname = @"American Engish Thesaurus";
+        dictname = @"American English Thesaurus";
         break;
       case 'e':
-        dictname = @"American Engish";
+        dictname = @"American English";
         break;
+      case '?':
+        printf("Unknown argument option.\n");
+        return 1;
     }
   }
   argc -= optind;
@@ -66,7 +69,7 @@ int main(int argc, char** argv) {
       printf("Result: %s\n", [(NSString*)result UTF8String]);
     }
     else {
-      printf("No such word.\n");
+      printf("Not found.\n");
     }
 
 //    // function show dictionaries you have
