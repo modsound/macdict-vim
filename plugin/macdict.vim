@@ -50,9 +50,13 @@ endfunction
 
 " define command
 command! -nargs=1 MacDict call macdict#s:consul('', <q-args>)
-command! -nargs=1 MacDictEng call macdict#s:consul('-e', <q-args>)
-command! -nargs=1 MacDictDaijirin call macdict#s:consul('-j', <q-args>)
-command! -nargs=1 MacDictRuigo call macdict#s:consul('-s', <q-args>)
+command! -nargs=1 MacDictJapan call macdict#s:consul('-j', <q-args>)
+command! -nargs=1 MacDictEnglish call macdict#s:consul('-e', <q-args>)
+command! -nargs=1 MacDictThesaurus call macdict#s:consul('-t', <q-args>)
+command! -nargs=1 MacDictGerman call macdict#s:consul('-g', <q-args>)
+command! -nargs=1 MacDictFrench call macdict#s:consul('-f', <q-args>)
+command! -nargs=1 MacDictApple call macdict#s:consul('-a', <q-args>)
+command! -nargs=1 MacDictWikipedia call macdict#s:consul('-w', <q-args>)
 command! -nargs=0 MacDictCWord call macdict#s:consul('', expand('<cword>'))
 command! MacDictClose call macdict#s:close()
 

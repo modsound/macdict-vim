@@ -15,17 +15,29 @@ int main(int argc, char** argv) {
   // set default dictionary
   NSString *dictname = @"Japanese-English";
   // set dictionary by an argument
-  while ((opt = getopt(argc, argv, "jse")) != -1) {
+  while ((opt = getopt(argc, argv, "jwafgte")) != -1) {
     switch (opt) {
  	    case 'j':
  	      dictname = @"Japanese";
  	      break;
- 	    case 's':
- 	      dictname = @"Japanese Synonyms";
+      case 'w':
+        dictname = @"Wikipedia";
+        break;
+ 	    case 'a':
+ 	      dictname = @"Apple";
  	      break;
- 	    case 'e':
- 	      dictname = @"Dictionary";
- 	      break;
+      case 'f':
+        dictname = @"French";
+        break;
+      case 'g':
+        dictname = @"German";
+        break;
+      case 't':
+        dictname = @"American Engish Thesaurus";
+        break;
+      case 'e':
+        dictname = @"American Engish";
+        break;
     }
   }
   argc -= optind;
@@ -51,11 +63,20 @@ int main(int argc, char** argv) {
     CFRange range = DCSGetTermRangeInString(dict, (CFStringRef)word, 0);
     result = DCSCopyTextDefinition(dict, (CFStringRef)word, range);
     if (result) {
-      printf("Result: %s", [(NSString*)result UTF8String]);
+      printf("Result: %s\n", [(NSString*)result UTF8String]);
     }
     else {
       printf("No such word.\n");
     }
+
+//    // function show dictionaries you have
+//    char detail();{
+//      NSArray *availables = DCSCopyAvailableDictionaries();
+//      for (NSObject *d in availables) {
+//        NSString *sn = DCSDictionaryGetShortName((DCSDictionaryRef)d);
+//        printf("%s\n", [sn UTF8String]);
+//      }
+//    }
 
   }
 
