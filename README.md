@@ -1,15 +1,14 @@
 macdict-vim
 ===========
 
-You can consult dictionaries from Vim for Mac OSX with this plugin.
-But this plugin uses Mac OSX internal dictionaries.
+You can consult MacOS X internal dictionaries from Vim by this plugin.
 
 ## INSTALL
 ```
 NeoBundle 'modsound/macdict-vim.git'
 ```
 
-## COMPILE
+## COMPILE (If you like)
 ```
 $ cd ~/.vim/bundle/macdict.vim/autoload/
 ```
@@ -55,7 +54,7 @@ $ make
 ```
 
 ## CONFIG
-You can change layout and size through global variable in your .vimrc.
+You can change layout and window size through global variable in your .vimrc.
 ```
 let g:macdict_window_size = '30vsplit'
 ```
