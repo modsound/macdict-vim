@@ -27,7 +27,7 @@ endif
 
 " set option
 if !exists('g:macdict_window_size')
-  let g:macdict_window_size = 'botright new'
+  let g:macdict_window_size = 'botright 8new'
 endif
 
 " consult mac internal dictionaries
@@ -35,7 +35,8 @@ function! macdict#s:consul(opt, arg)
   exec g:macdict_window_size
   exec s:macdict_prg a:opt a:arg
   setlocal buftype=nofile
-  setlocal wrap nowrap
+  setlocal textwidth=0
+  setlocal wrap
   setlocal noswapfile
   setlocal nonumber
   exec ":normal gg"

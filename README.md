@@ -56,5 +56,5 @@ $ make
 ## CONFIG
 You can change layout and window size through global variable in your .vimrc.
 ```
-let g:macdict_window_size = '30vsplit'
+let g:macdict_window_size = 'botright 8new'
 ```
