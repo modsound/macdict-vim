@@ -23,7 +23,7 @@ function! macdict#s:consul(opt, arg)
   else
     exec 'silent '.g:macdict_window_size.' MacDictBuffer'
   endif
-  exe "silen normal ggdG"
+  exe "silent :normal ggdG"
   exec s:macdict_prg a:opt a:arg
   setlocal buftype=nofile wrap textwidth=0 noswapfile nonumber
   silent exec ":normal ggdd"
@@ -31,7 +31,7 @@ endfunction
 
 " close output
 function! macdict#s:close()
-  silent exec ":bdelete Macdictbuffer"
+  silent exec ":bdelete MacDictBuffer"
 endfunction
 
 let &cpo = s:save_cpo
