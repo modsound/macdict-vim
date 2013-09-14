@@ -73,12 +73,13 @@ int main(int argc, char** argv) {
     }
 
 //    // function show dictionaries you have
-//    char detail();{
+//    char detail(){
 //      NSArray *availables = DCSCopyAvailableDictionaries();
 //      for (NSObject *d in availables) {
 //        NSString *sn = DCSDictionaryGetShortName((DCSDictionaryRef)d);
 //        printf("%s\n", [sn UTF8String]);
 //      }
+//    return 0;
 //    }
 
   }

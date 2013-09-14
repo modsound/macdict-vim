@@ -27,20 +27,19 @@ endif
 
 " set option
 if !exists('g:macdict_window_size')
-  let g:macdict_window_size = '40vsplit'
+  let g:macdict_window_size = 'botright new'
 endif
 
 " consult mac internal dictionaries
 function! macdict#s:consul(opt, arg)
-  exec ":" . g:macdict_window_size . "+enew"
+  exec g:macdict_window_size
   exec s:macdict_prg a:opt a:arg
-  setlocal readonly
-  setlocal nomodifiable
   setlocal buftype=nofile
+  setlocal wrap nowrap
   setlocal noswapfile
   setlocal nonumber
-  setlocal norelativenumber
   exec ":normal gg"
+  setlocal nomodifiable
 endfunction
 
 " close output
