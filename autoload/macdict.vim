@@ -15,15 +15,15 @@ endif
 
 " consult mac internal dictionaries
 function! macdict#s:consul(opt, arg)
-  let a:winnum = bufwinnr(bufnr('MacDictBuffer'))
-  if a:winnum != -1
-    if a:winnum != bufwinnr('%')
-      exe ":normal \<C-w>".a:winnum."w"
+  let winnum = bufwinnr(bufnr('MacDictBuffer'))
+  if winnum != -1
+    if winnum != bufwinnr('%')
+      silent exec ":normal \<C-w>".winnum."w"
     endif
   else
-    exec 'silent '.g:macdict_window_size.' MacDictBuffer'
+    silent exec g:macdict_window_size.' MacDictBuffer'
   endif
-  exe "silent :normal ggdG"
+  silent exec ":normal ggdG"
   exec s:macdict_prg a:opt a:arg
   setlocal buftype=nofile wrap textwidth=0 noswapfile nonumber
   silent exec ":normal ggdd"
