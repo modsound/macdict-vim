@@ -15,6 +15,10 @@ endif
 
 " consult mac internal dictionaries
 function! macdict#s:consul(opt, arg)
+  if !has("mac")
+    echo "Sorry. macdict.vim is only for Mac OSX User."
+    return
+  endif
   let winnum = bufwinnr(bufnr('MacDictBuffer'))
   if winnum != -1
     if winnum != bufwinnr('%')
