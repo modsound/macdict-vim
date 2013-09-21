@@ -10,11 +10,6 @@ if exists('g:loaded_macdict_vim')
 endif
 let g:loaded_macdict_vim = 1
 
-if !has("mac")
-  echo "Sorry. macdict.vim is only for Mac OSX User."
-  finish
-endif
-
 " define command
 command! -nargs=1 MacDict call macdict#s:consul('', <q-args>)
 command! -nargs=1 MacDictJapan call macdict#s:consul('-j', <q-args>)
