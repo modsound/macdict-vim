@@ -65,8 +65,10 @@ int main(int argc, char** argv) {
     CFRange range = DCSGetTermRangeInString(dict, (CFStringRef)word, 0);
     NSString *def = (NSString *)DCSCopyTextDefinition(dict, (CFStringRef)word, range);
     if (def) {
-      NSString *result = [def stringByReplacingOccurrencesOfString:@"▸" withString:@"\n▸"];
-      printf("Result: %s\n", [(NSString*)result UTF8String]);
+      NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[1-9] " options:0 error:NULL];
+      NSString *regstr = [regex stringByReplacingMatchesInString:def options:0 range:NSMakeRange(0, [def length]) withTemplate:@"\n\n"];
+      NSString *replace = [regstr stringByReplacingOccurrencesOfString:@"▸" withString:@"\n▸"];
+      printf("Result: %s\n", [(NSString*)replace UTF8String]);
     }
     else {
       printf("Not found.\n");
