@@ -62,10 +62,10 @@ int main(int argc, char** argv) {
     }
   
     // consult dictionaries
-    CFStringRef result = NULL;
     CFRange range = DCSGetTermRangeInString(dict, (CFStringRef)word, 0);
-    result = DCSCopyTextDefinition(dict, (CFStringRef)word, range);
-    if (result) {
+    NSString *def = (NSString *)DCSCopyTextDefinition(dict, (CFStringRef)word, range);
+    if (def) {
+      NSString *result = [def stringByReplacingOccurrencesOfString:@"▸" withString:@"\n▸"];
       printf("Result: %s\n", [(NSString*)result UTF8String]);
     }
     else {
@@ -73,7 +73,7 @@ int main(int argc, char** argv) {
     }
 
 //    // function show dictionaries you have
-//    char detail(){
+//    int detail(); {
 //      NSArray *availables = DCSCopyAvailableDictionaries();
 //      for (NSObject *d in availables) {
 //        NSString *sn = DCSDictionaryGetShortName((DCSDictionaryRef)d);
