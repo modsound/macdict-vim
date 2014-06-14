@@ -14,7 +14,7 @@ if !exists('g:macdict_window_size')
 endif
 
 " consult mac internal dictionaries
-function! macdict#s:consul(opt, arg)
+function! macdict#consul(opt, arg)
   if !has("mac")
     echo "Sorry. macdict.vim is only for Mac OSX User."
     return
@@ -34,7 +34,7 @@ function! macdict#s:consul(opt, arg)
 endfunction
 
 " close output
-function! macdict#s:close()
+function! macdict#close()
   silent exec ":bdelete MacDictBuffer"
 endfunction
 
